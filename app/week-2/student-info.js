@@ -4,7 +4,10 @@ export default function StudentInfo () {
     return (
         <div>
             <p>Name: James Kyle</p>
-            <Link href="https://github.com/James-RD-Kyle/cprg306-assignments">GitHub Repo</Link>
+            <span>
+                Github: {" "} 
+                <Link href="https://github.com/James-RD-Kyle/cprg306-assignments" target="_blank">James-RD-Kyle/cprg306-assignments</Link>
+                </span>
         </div>
     );
 }
