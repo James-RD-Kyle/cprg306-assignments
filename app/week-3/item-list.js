@@ -80,6 +80,5 @@ return (
             quantity={item.quantity}
             category={item.category}
         />
-    ))
-)
+    )));
 }
