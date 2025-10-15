@@ -32,7 +32,7 @@ export default function NewItem() {
             <form onSubmit={handleSubmit} className="">
                 <div className="mt-2 w-full">
                     <label htmlFor="name">Item Name:</label>
-                    <input value={name} onChange={(event) => setName(event.target.value)} type="text" id="name" placeholder="eg. Apples, 5" className="p-2 rounded-lg border-2 border-gray-300 w-full box-border" required />
+                    <input value={name} onChange={(event) => setName(event.target.value)} type="text" id="name" placeholder="e.g. Apples, 5" className="p-2 rounded-lg border-2 border-gray-300 w-full box-border" required />
                 </div>
                 <p className="text-center mt-2">Quantity: {quantity}</p>
                 <div className="flex justify-center gap-1">
