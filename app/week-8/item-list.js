@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Item from "./item";
 
-export default function ItemList({ items: Items }) {
+export default function ItemList({items: Items, onItemSelect}) {
     const [sortBy, setSortBy] = useState("name");
     const sortedItems = [...Items];
     
@@ -20,14 +20,17 @@ export default function ItemList({ items: Items }) {
                 <button type="button" onClick={() => setSortBy("name")} className={`rounded p-2 w-25 mr-2 cursor-pointer ${sortBy === "name" ? "bg-blue-500" : "bg-white text-black"}`}>Name</button>
                 <button type="button" onClick={() => setSortBy("category")} className={`rounded p-2 w-25 cursor-pointer ${sortBy === "category" ? "bg-blue-500" : "bg-white text-black"}`}>Category</button>
             </div>
+            <ul className="text-center w-full max-w-2xl">
             {sortedItems.map((item, index) => (
                 <Item
                     key={index}
                     name={item.name}
                     quantity={item.quantity}
                     category={item.category}
+                    onSelect={() => onItemSelect(item)}
                 />
             ))}
+            </ul>
         </div>
     );
 }
