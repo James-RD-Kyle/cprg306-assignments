@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 export default function Page() {
     const { user, gitHubSignIn, firebaseSignOut } = useUserAuth();
-    
+
 
     if (!user) {
         return (
@@ -15,13 +15,11 @@ export default function Page() {
             </div>
         );
     }
-    if (user) {
-        return (
-            <div>
-                <h1>Welcome, {user.displayName}</h1>
-                <button type="button"><Link href="/week-9/shopping-list">Shopping List</Link></button>
-                <button type="button" onClick={firebaseSignOut}>Sign Out</button>
-            </div>
-        );
-    }
+    return (
+        <div>
+            <h1>Welcome, {user.displayName}</h1>
+            <button type="button"><Link href="/week-9/shopping-list">Shopping List</Link></button>
+            <button type="button" onClick={firebaseSignOut}>Sign Out</button>
+        </div>
+    );
 };
