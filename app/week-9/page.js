@@ -5,8 +5,9 @@ import Link from 'next/link';
 
 export default function Page() {
     const { user, gitHubSignIn, firebaseSignOut } = useUserAuth();
+    
 
-    if (user == null) {
+    if (!user) {
         return (
             <div className="grid place-items-center h-screen">
                 <h1>Please sign in</h1>
@@ -14,7 +15,7 @@ export default function Page() {
             </div>
         );
     }
-    if (!user) {
+    if (user) {
         return (
             <div>
                 <h1>Welcome, {user.displayName}</h1>
