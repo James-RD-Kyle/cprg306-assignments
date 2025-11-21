@@ -21,9 +21,9 @@ export default function ItemList({items: Items, onItemSelect}) {
                 <button type="button" onClick={() => setSortBy("category")} className={`rounded p-2 w-25 cursor-pointer ${sortBy === "category" ? "bg-blue-500" : "bg-white text-black"}`}>Category</button>
             </div>
             <ul className="text-center w-full max-w-2xl">
-            {sortedItems.map((item, index) => (
+            {sortedItems.map((item) => (
                 <Item
-                    key={index}
+                    key={item.id}
                     name={item.name}
                     quantity={item.quantity}
                     category={item.category}
