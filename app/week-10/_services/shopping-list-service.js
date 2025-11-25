@@ -2,7 +2,7 @@ import { db } from "../../_utils/firebase";
 import { collection, getDocs, addDoc, query } from "firebase/firestore";
 
 export async function getItems(userId) {
-    const itemsQuery = query(collection(db, "shoppingLists", userId, "items"));
+    const itemsQuery = query(collection(db, "users", userId, "items"));
     const querySnap = await getDocs(itemsQuery);
     const items = [];
 
@@ -13,6 +13,6 @@ export async function getItems(userId) {
 }
 
 export async function addItem(userId, item) {
-    const add = await addDoc(collection(db, "shoppingLists", userId, "items"), item);
+    const add = await addDoc(collection(db, "users", userId, "items"), item);
     return add.id;
 }
