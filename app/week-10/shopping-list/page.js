@@ -7,6 +7,8 @@ import MealIdeas from './meal-ideas';
 import { useState } from 'react';
 import { useUserAuth } from "../../contexts/AuthContext";
 import Link from 'next/link';
+import {getItems, addItems} from '../_services/shopping-list-service';
+import { useEffect } from 'react';
 
 export default function Page() {
     const [items, setItems] = useState(itemsData);
@@ -46,4 +48,9 @@ export default function Page() {
             </div>
         </main>
     )
+}
+
+async function loadItems() { 
+    const items = await getItems(user.uid);
+    setItems(items);
 }
