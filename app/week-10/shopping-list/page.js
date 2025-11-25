@@ -13,11 +13,13 @@ export default function Page() {
     const [selectedItemName, setSelectedItemName] = useState();
     const { user } = useUserAuth();
     useEffect(() => {
+
+        if (!user) return;
         async function loadItems() { 
         const items = await getItems(user.uid);
         setItems(items);}
         loadItems();
-    }, [user.uid]);
+    }, [user]);
 
     const handleAddItem = (newItem) => {
         const id = addItem(user.uid, newItem);
